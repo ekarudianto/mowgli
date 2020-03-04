@@ -6,7 +6,7 @@ with endpoints.app.test_client() as client:
     def test_should_return_status_ok():
         response = client.get('/ping', content_type='html/text')
 
-        assert 300 == response.status_code
+        assert 200 == response.status_code
         assert b'PONG' == response.data
 
 
