@@ -38,9 +38,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run:
-        name: Build Docker image
-        command: ls
+      - run: ls
 #        command: docker build -t ekarudianto/mowgli:latest .
 
 workflows:
