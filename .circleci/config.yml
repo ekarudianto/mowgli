@@ -40,7 +40,8 @@ jobs:
       - setup_remote_docker
       - run:
         name: Build Docker image
-        command: docker build -t ekarudianto/mowgli:latest .
+        command: ls
+#        command: docker build -t ekarudianto/mowgli:latest .
 
 workflows:
   build-test-deploy:
