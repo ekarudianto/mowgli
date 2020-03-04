@@ -33,13 +33,15 @@ jobs:
   build:
     environment:
       IMAGE_NAME: ekarudianto/mowgli
+      DOCKER_USER: ekarudianto
     docker:
       - image: circleci/python:3.7
     steps:
       - checkout
       - setup_remote_docker
-      - run: ls
-#        command: docker build -t ekarudianto/mowgli:latest .
+      - run: docker build -t $IMAGE_NAME:latest .
+      - run: echo $DOCKER_PWD | docker login -u $DOCKER_USER --password-stdin
+      - run: docker push $IMAGE_NAME:latest
 
 workflows:
   build-test-deploy:
