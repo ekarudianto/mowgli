@@ -24,12 +24,13 @@ jobs:
             - "/usr/local/lib/python3.7/site-packages"
       - run:
           name: Run tests
-          command: pipenv run pytest
+          command: pipenv run pytest --junitxml=test-results/junit.xml
       - store_test_results:
           path: test-results
       - store_artifacts:
           path: test-results
           destination: tr1
+
 
 workflows:
   build-test-deploy:
