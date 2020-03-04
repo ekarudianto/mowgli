@@ -30,20 +30,19 @@ jobs:
       - store_artifacts:
           path: test-results
           destination: tr1
-#  build:
-#    environment:
-#      IMAGE_NAME: ekarudianto/mowgli
-#    docker:
-#      - image: circleci/python:3.7
-#    steps:
-#      - checkout
-#      - setup_remote_docker
-#      - run:
-#        name: Build Docker image
-#        command: docker build -t $IMAGE_NAME:latest .
+  build:
+    environment:
+      IMAGE_NAME: ekarudianto/mowgli
+    docker:
+      - image: circleci/python:3.7
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+        name: Build Docker image
+        command: docker build -t $IMAGE_NAME:latest .
 
 workflows:
   build-test-deploy:
     jobs:
       - test
-      - build
